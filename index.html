@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Тапсырмалар трекері</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="wrap">
+
+  <section id="auth" hidden>
+    <h1>Тапсырмалар</h1>
+    <p class="sub">Тапсырмаларыңызды санаттарға бөліп, мерзімін бақылаңыз.</p>
+    <div class="card">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tab-login" aria-selected="true">Кіру</button>
+        <button type="button" role="tab" id="tab-register" aria-selected="false">Тіркелу</button>
+      </div>
+      <form id="auth-form" novalidate>
+        <label>Логин
+          <input id="a-user" class="field" autocomplete="username" maxlength="30" required>
+        </label>
+        <label>Құпия сөз
+          <input id="a-pass" class="field" type="password" autocomplete="current-password" maxlength="100" required>
+        </label>
+        <p class="hint" id="a-hint" hidden>Логин 3–30 таңба, құпия сөз кемінде 8 таңба.</p>
+        <p class="error" id="a-error" role="alert" hidden></p>
+        <button class="primary" id="a-submit" type="submit">Кіру</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="app" hidden>
+    <header class="top">
+      <div>
+        <h1>Тапсырмалар</h1>
+        <p class="sub" id="today"></p>
+      </div>
+      <div class="who">
+        <span id="whoami"></span>
+        <button type="button" class="link" id="logout">Шығу</button>
+      </div>
+    </header>
+
+    <section class="card progress" aria-label="Жалпы нәтиже">
+      <div class="progress-top"><span id="ptext"></span><span id="ppct"></span></div>
+      <div class="bar"><i id="pbar"></i></div>
+      <p class="meta late" id="poverdue" hidden></p>
+    </section>
+
+    <form id="task-form" class="task-form" autocomplete="off">
+      <input id="t-title" class="field wide" placeholder="Жаңа тапсырма жазыңыз" maxlength="200" aria-label="Тапсырма мәтіні" required>
+      <select id="t-cat" class="field" aria-label="Санат"></select>
+      <select id="t-prio" class="field" aria-label="Маңыздылығы (жоғары, орташа, төмен)">
+        <option value="1">Жоғары</option>
+        <option value="2" selected>Орташа</option>
+        <option value="3">Төмен</option>
+      </select>
+      <input id="t-due" type="date" class="field" aria-label="Мерзімі">
+      <button class="primary" type="submit">Қосу</button>
+    </form>
+    <p class="error" id="t-error" role="alert" hidden></p>
+
+    <div class="filters">
+      <div class="seg" id="f-status" role="group" aria-label="Күйі"></div>
+      <select id="f-cat" class="field" aria-label="Санат бойынша сүзу"></select>
+      <input id="f-q" type="search" class="field" placeholder="Іздеу" aria-label="Іздеу" maxlength="100">
+    </div>
+
+    <ul id="list"></ul>
+
+    <details class="card cats">
+      <summary>Санаттарды басқару</summary>
+      <ul id="cat-list"></ul>
+      <form id="cat-form" class="cat-form" autocomplete="off">
+        <input id="c-name" class="field" placeholder="Жаңа санат атауы" maxlength="40" aria-label="Санат атауы" required>
+        <input id="c-color" type="color" value="#3d5afe" aria-label="Санат түсі">
+        <button class="primary" type="submit">Қосу</button>
+      </form>
+      <p class="error" id="c-error" role="alert" hidden></p>
+    </details>
+  </section>
+
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

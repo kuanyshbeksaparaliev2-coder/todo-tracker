@@ -1,0 +1,13 @@
+{
+  "name": "todo-tracker",
+  "version": "1.0.0",
+  "description": "Санаттары мен мерзімдері бар тапсырмалар трекері (Node.js + SQLite)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/*.test.js\""
+  },
+  "engines": { "node": ">=22.5.0" },
+  "license": "MIT"
+}
